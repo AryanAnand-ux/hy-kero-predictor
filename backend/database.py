@@ -106,10 +106,9 @@ def get_db_connection():
 
 def init_db():
     """Initializes the database schema and seeds it from CSV if empty."""
-    database_url = _get_database_url()
-    if database_url.startswith("sqlite:///"):
-        db_dir = DB_PATH.parent
-        db_dir.mkdir(parents=True, exist_ok=True)
+    if not _is_postgres():
+        db_path = _get_database_path()
+        db_path.parent.mkdir(parents=True, exist_ok=True)
 
     conn = get_db_connection()
     try:
