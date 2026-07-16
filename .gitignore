@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Node/React
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Project data artifacts (generated)
+data/processed/*.csv
+data/processed/*.json
+data/models/*.pkl
+data/*.db
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.gemini/
+mcp/
+brain/
+*.log
+*.msi
+*.xlsx
+*.mp4
+

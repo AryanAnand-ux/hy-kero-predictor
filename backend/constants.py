@@ -1,0 +1,42 @@
+"""Shared constants for the HY Kero Flash Point prediction backend."""
+
+# Flash point specification limits (IOCL standards)
+FLASH_POINT_SPEC_MIN = 63.0
+FLASH_POINT_SPEC_MAX = 96.0
+
+# Model defaults
+DEFAULT_RMSE = 2.21  # Huber Tuned test RMSE (last pipeline run: 30 features, Winsorized, no target leakage)
+CI_Z_SCORE_95 = 1.96
+
+# Rate limiting
+RATE_LIMIT_MAX_REQUESTS = 100
+RATE_LIMIT_WINDOW_SECONDS = 60
+RATE_LIMIT_CLEANUP_INTERVAL = 300
+
+# Upload limits
+MAX_UPLOAD_SIZE_BYTES = 10 * 1024 * 1024  # 10 MB
+UPLOAD_CHUNK_SIZE = 1024 * 1024  # 1 MB
+BATCH_DB_LOG_LIMIT = 500
+
+# Chat
+MAX_MESSAGE_LENGTH = 1000
+CHAT_HISTORY_WINDOW_HOURS = 2
+CHAT_RECENT_PREDICTIONS_LIMIT = 10
+CHAT_EXTENDED_PREDICTIONS_LIMIT = 20
+
+# AI Provider
+DEFAULT_MODEL_NAME = "gemini-2.0-flash"
+DEFAULT_TEMPERATURE = 0.2
+DEFAULT_MAX_OUTPUT_TOKENS = 800
+DEFAULT_TIMEOUT_SECONDS = 30.0
+
+# Flash point value bounds (sanity check)
+FLASH_POINT_VALUE_MIN = 40.0
+FLASH_POINT_VALUE_MAX = 120.0
+
+# Model sort sentinel
+FEATURE_IMPORTANCE_SORT_SENTINEL = 999.0
+DEFAULT_FEATURE_IMPORTANCE_TOP_N = 20
+
+# Prediction window
+PREDICTION_WINDOW_MINUTES = 45

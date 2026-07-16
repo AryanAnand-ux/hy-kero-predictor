@@ -1,0 +1,15 @@
+# Python 3.14 compatible — upper bounds relaxed to allow prebuilt binary wheels
+fastapi>=0.109.0,<0.116.0
+uvicorn[standard]>=0.27.0,<0.35.0
+# scikit-learn 1.6+ has prebuilt wheels for Python 3.13/3.14; <1.6.0 requires meson compilation
+scikit-learn>=1.6.0,<2.0.0
+xgboost>=2.0.0,<3.0.0
+lightgbm>=4.1.0,<5.0.0
+joblib>=1.3.0,<2.0.0
+pandas>=2.1.0,<3.0.0
+numpy>=1.26.0,<3.0.0
+openpyxl>=3.1.2,<4.0.0
+python-multipart>=0.0.6,<1.0.0
+python-dotenv>=1.0.0,<2.0.0
+httpx>=0.27.0,<1.0.0
+psycopg2-binary>=2.9.9,<3.0.0

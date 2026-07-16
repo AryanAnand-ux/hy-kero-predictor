@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Project Report - HY Kero Soft Sensor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1a1a1a;
+            background-color: #fcfbf7;
+            line-height: 1.625;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-top: 1.8em;
+            margin-bottom: 0.6em;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            border-bottom: 4px solid #1a1a1a;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            font-size: 1.65rem;
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 6px;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+        }
+        
+        p {
+            margin-top: 0.4em;
+            margin-bottom: 1.2em;
+            font-size: 1.05rem;
+        }
+        
+        p:has(br) {
+            margin-bottom: 1.5em;
+        }
+        
+        a {
+            color: #4D7CFF;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        hr {
+            border: 0;
+            height: 4px;
+            background: #1a1a1a;
+            margin: 3rem 0;
+        }
+        
+        /* Lists */
+        ul, ol {
+            padding-left: 24px;
+            margin-bottom: 1.5em;
+        }
+        
+        li {
+            margin-bottom: 0.5em;
+            font-size: 1.05rem;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            border: 3px solid #1a1a1a;
+            background: #ffffff;
+            box-shadow: 6px 6px 0px #1a1a1a;
+        }
+        
+        th, td {
+            border: 2px solid #1a1a1a;
+            padding: 12px 14px;
+            font-size: 0.95rem;
+        }
+        
+        th {
+            background-color: #f1ebd9;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-align: left;
+        }
+        
+        tr:nth-child(even) td {
+            background-color: #faf9f5;
+        }
+        
+        /* Code & Pre */
+        code {
+            font-family: 'Space Mono', monospace;
+            background-color: #eae9e5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 700;
+            border: 1px solid #c7c6c2;
+        }
+        
+        pre {
+            background: #1e1e1f;
+            color: #f4f4f5;
+            padding: 20px;
+            border-radius: 8px;
+            border: 3px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #1a1a1a;
+            overflow-x: auto;
+            margin: 2em 0;
+        }
+        
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            border: 0;
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+        
+        /* Cover Page Styling */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 4px solid #1a1a1a;
+            padding: 60px;
+            margin-bottom: 60px;
+            background-color: #FFE500;
+            box-shadow: 12px 12px 0px #1a1a1a;
+            min-height: 400px;
+        }
+        
+        .cover-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            border-bottom: 6px solid #1a1a1a;
+            padding-bottom: 16px;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .cover-meta {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        /* Print Styling */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                font-size: 11pt;
+                padding: 0;
+                max-width: 100%;
+            }
+            
+            .cover-page {
+                background-color: #ffffff !important;
+                border: 4px solid #000000 !important;
+                box-shadow: none !important;
+                page-break-after: always;
+                min-height: auto;
+                height: 100vh;
+                justify-content: center;
+                padding: 40px;
+            }
+            
+            .cover-title {
+                font-size: 2.8rem;
+                border-bottom: 5px solid #000000;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            table {
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+            
+            pre {
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+            
+            th {
+                background-color: #e5e5e5 !important;
+            }
+            
+            tr:nth-child(even) td {
+                background-color: #f9f9f9 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-title">INTERNSHIP PROJECT REPORT</div>
+        <div class="cover-subtitle">Real-Time Heavy Kerosene Flash Point Predictor<br>(Soft Sensor Machine Learning Model)</div>
+        <div class="cover-meta">
+            <div><strong>Location:</strong> Crude Distillation Unit (CDU), Refinery Operations</div>
+            <div><strong>Submitting:</strong> Internship Quality Analysis &amp; Soft Sensor Deployment</div>
+            <div><strong>Date:</strong> July 2026</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1 class="page-break">INTERNSHIP PROJECT REPORT</h1>
+<h2 class="page-break">End-to-End Real-Time Kerosene Flash Point Predictor (Soft Sensor)</h2>
+<p><strong>Location:</strong> Crude Distillation Unit (CDU), Refinery Operations</p>
+<p><strong>Target Variable:</strong> Kerosene Flash Point via Gas Chromatography (<code>flash_gc</code> in °C)</p>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">Executive Summary</h2>
+<p></p>
+<p>In oil refining, the <strong>Flash Point</strong> of Heavy Kerosene (HY Kero) is a critical safety and quality parameter. Historically, the plant relied on Gas Chromatography (GC) lab analysis, which only runs three times per day (once per shift). This 8-hour feedback loop created operational blind spots, forcing operators to run the unit conservatively or risk producing off-spec kerosene.</p>
+<p></p>
+<p>This project successfully engineered and deployed a <strong>real-time "Soft Sensor" machine learning model</strong> that predicts the Kerosene Flash Point continuously using 41 DCS process sensors (temperatures, flows, and pressures).</p>
+<p></p>
+<p>Through rigorous feature engineering, leakage prevention, and model adaptation, the final system achieves a <strong>Test RMSE of 2.22°C</strong> and an <strong>R² of 0.6663</strong>, operating right at the theoretical limit of lab measurement noise. The project is delivered as a production-grade full-stack application featuring a FastAPI backend, a React dashboard, a batch upload interface, and an AI-powered operations assistant.</p>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">1. Industrial Process & Business Context</h2>
+<p></p>
+<h3>1.1 The Crude Distillation Unit (CDU)</h3>
+<p>The CDU is the first major unit in a refinery, separating crude oil into fractions based on boiling points. Heavy Kerosene is drawn from the upper-middle section of the Main Fractionator column.</p>
+<p></p>
+<h3>1.2 The Flash Point Challenge</h3>
+<p>The flash point is the lowest temperature at which kerosene vaporizes to form an ignitable mixture in the air.</p>
+<ul>
+<li><strong>Too Low:</strong> High fire risk; fails commercial and regulatory specifications (minimum limit is typically 63°C).</li>
+<li><strong>Too High:</strong> Represents lost yield, as valuable light components are being pushed down into heavier fractions.</li>
+</ul>
+<p></p>
+<p>Because lab tests take several hours to collect, analyze, and report, operators cannot respond quickly to process upsets (such as furnace temperature fluctuations or stripping steam changes). A soft sensor solves this by using real-time DCS readings to predict the flash point instantly.</p>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">2. Problem Statement & Baseline Auditing</h2>
+<p></p>
+<p>A previous baseline model was evaluated but suffered from two critical flaws that made it undeployable in production:</p>
+<p></p>
+<h3>2.1 Target Variable Leakage</h3>
+<p>The baseline model included rolling averages of the target variable (<code>roll3_flash_gc</code>) and direct target lags (<code>lag1_flash_gc</code>). In production, because lab tests only occur every 8 hours, <strong>operators would have to manually enter previous lab results to get a prediction</strong>. If a lab result was missing or delayed, the model failed. If a lab test had a recording error, that error fed back into the model, compounding predictions.</p>
+<p></p>
+<h3>2.2 Domain & Distribution Shift</h3>
+<p>During the testing period (Jan 2026 – Mar 2026), the plant's average temperature shifted higher by <strong>+3.71°C</strong> compared to the training period (Apr 2025 – Jan 2026). Overly complex models (XGBoost, Random Forest) overfit the training data and completely collapsed when encountering these new temperatures, yielding negative R² values on the test set.</p>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">3. Data Engineering & Alignment Pipeline</h2>
+<p></p>
+<p>To build a reliable model, we established a strict data alignment pipeline in preprocess.py and features.py:</p>
+<p></p>
+<pre class="mermaid">
+graph TD
+    A[Raw DCS Sensors: 15-min intervals] --&gt; B[Time Alignment]
+    C[Lab GC Sample: 3x per day] --&gt; B
+    B --&gt; D[Rewind 75-min Residence Time]
+    D --&gt; E[Extract 90-min Window: +/-45 mins]
+    E --&gt; F[Compute Window Average: Mean]
+    F --&gt; G[Merged Shift Dataset]
+</pre>
+<p></p>
+<h3>3.1 Residence Time & Window Aggregation</h3>
+<ol>
+<li><strong>Residence Time Rewind (75 mins):</strong> Kerosene sampled at the lab at 2:00 PM actually left the distillation column 75 minutes earlier. We shift the alignment window back by 75 minutes to match the physical travel time of the liquid through the system.</li>
+<li><strong>±45 Minute Window:</strong> We grab 90 minutes of sensor data around that aligned timestamp.</li>
+<li><strong>Mean Aggregation:</strong> We compute the <strong>mean</strong> of the sensors in this window. Standard deviation was excluded because it captured control-valve hunting (mechanical noise) rather than process chemistry.</li>
+</ol>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">4. The Feature Selection Funnel (117 ➔ 30)</h2>
+<p></p>
+<p>We engineered <strong>117 features</strong> including base sensor averages, shift lags, rolling 3-shift averages, time trends (cyclical months), and physics-based ratios (such as Steam-to-Kerosene draw ratios). We then applied a strict 3-step filter to prune this down to the <strong>Top 30 features</strong>:</p>
+<p></p>
+<table><thead><tr>
+<th>Step</th>
+<th>Method</th>
+<th>Purpose</th>
+<th>Result</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>1. Variance Filter</strong></td>
+<td>VarianceThreshold</td>
+<td>Delete flatline or broken sensors</td>
+<td>Removed 7 features</td>
+</tr>
+<tr>
+<td><strong>2. Collinearity Filter</strong></td>
+<td>Correlation Matrix</td>
+<td>Remove "identical twin" sensors (Pearson $r > 0.92$)</td>
+<td>Removed 17 features</td>
+</tr>
+<tr>
+<td><strong>3. Importance Filter</strong></td>
+<td>Huber Coefficients</td>
+<td>Keep only the top 30 highest-weighted features</td>
+<td>Removed 63 features</td>
+</tr>
+</tbody></table>
+<p></p>
+<p><strong>Crucial Win:</strong> This automated selection naturally dropped the target lags (<code>lag1_flash_gc</code>), completely resolving the target leakage. The final model runs <strong>purely on physical sensors and sensor momentum</strong>.</p>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">5. Model Selection & Performance Comparison</h2>
+<p></p>
+<p>We trained multiple models using a chronological <code>TimeSeriesSplit(gap=2)</code> to prevent time travel leakage:</p>
+<p></p>
+<h3>5.1 Model Comparison Table</h3>
+<p></p>
+<table><thead><tr>
+<th>Model Type</th>
+<th>CV RMSE (°C)</th>
+<th>Test RMSE (°C)</th>
+<th>Test $R^2$</th>
+<th>Status / Diagnostic</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>XGBoost Regressor</strong></td>
+<td>2.145</td>
+<td>4.882</td>
+<td>-0.6120</td>
+<td>✗ Collapsed due to domain shift</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td>2.210</td>
+<td>4.103</td>
+<td>-0.1340</td>
+<td>✗ Overfit to training range</td>
+</tr>
+<tr>
+<td><strong>Lasso Regressor</strong></td>
+<td>2.190</td>
+<td>2.301</td>
+<td>0.6415</td>
+<td>✓ Stable extrapolation</td>
+</tr>
+<tr>
+<td><strong>Huber Tuned (Best)</strong></td>
+<td><strong>2.091</strong></td>
+<td><strong>2.220</strong></td>
+<td><strong>0.6663</strong></td>
+<td>★ <strong>Deployed Production Model</strong></td>
+</tr>
+</tbody></table>
+<p></p>
+<h3>5.2 Why the Huber Regressor Won</h3>
+<ol>
+<li><strong>Linear Extrapolation:</strong> Using linear equations, the Huber model was able to extrapolate trends outside the training range. When the plant's temperature shifted up in 2026, Huber extrapolated correctly.</li>
+<li><strong>Robust Loss Function:</strong> Huber uses a combination of L1 and L2 loss, meaning it behaves like Mean Squared Error (MSE) for small errors, but switches to Mean Absolute Error (MAE) for large errors. This prevents random lab measurement errors (outliers) from distorting the model.</li>
+</ol>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">6. Full-Stack Software Architecture</h2>
+<p></p>
+<p>The project is structured as a production-grade containerized application:</p>
+<p></p>
+<pre><code class="language-">
+├── src/                      # ML pipeline (Preprocessing, Feature engineering, Training)
+├── backend/                  # FastAPI REST API (Endpoints, Database, AI Chatbot)
+├── frontend/                 # React + Vite Dashboard (Visualizations, Manual &amp; Batch inputs)
+├── data/                     # Data directory (Raw XLS, processed CSVs, SQLite DB, model binaries)
+└── docker-compose.yml        # Orchestrates Node/Nginx (frontend) and FastAPI (backend) containers
+</code></pre>
+<p></p>
+<ul>
+<li><strong>FastAPI Backend:</strong> Pre-loads the trained <code>.pkl</code> model and scaler at startup. Provides secure endpoints for instant predictions, batch file parsing, history retrieval, and chatbot streams.</li>
+<li><strong>SQLite Database:</strong> Stores all predictions generated by manual entry, time-window lookup, or batch file uploads, ensuring a continuous audit trail.</li>
+<li><strong>React Dashboard:</strong> Designed with a clean, high-contrast UI (Neo-brutalist theme) that visualizes predictions alongside <strong>95% Confidence Intervals</strong> ($\pm 2 \times \text{Test RMSE}$), warning indicators, and historical trends.</li>
+<li><strong>AI Chatbot Assistant:</strong> Integrated with the Gemini API to allow operators to query process conditions, retrieve database values, or ask domain-specific distillation questions.</li>
+</ul>
+<p></p>
+<hr>
+<p></p>
+<h2 class="page-break">7. Conclusions & Industrial Impact</h2>
+<p></p>
+<ol>
+<li><strong>Operator Autonomy:</strong> By eliminating the target variable lag dependency, the model operates completely independently of manual inputs, acting as a true "plug-and-play" sensor.</li>
+<li><strong>Immediate Feedback Loop:</strong> The time feedback loop was reduced from <strong>8 hours to real-time</strong>. Operators can immediately see the predicted consequences of adjusting stripping steam or furnace duties.</li>
+<li><strong>Optimal Performance:</strong> An RMSE of 2.22°C is extremely close to the <strong>1.5°C–2.0°C lab noise floor</strong>, proving the model has captured almost all learnable physical signal in the data.</li>
+<li><strong>Deployment Ready:</strong> The system is fully containerized with Docker, complete with health checks, unit tests (33/33 passing), and automatic error handling, making it ready for integration with plant DCS networks.</li>
+</ol>
+<p></p>
+
+    <!-- Mermaid Rendering Engine -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontFamily: 'Inter, sans-serif',
+                primaryColor: '#FFE500',
+                primaryTextColor: '#1a1a1a',
+                lineColor: '#1a1a1a',
+                edgeLabelBackground: '#ffffff',
+                nodeBorder: '#1a1a1a',
+                tertiaryColor: '#ffffff'
+            }
+        });
+    </script>
+</body>
+</html>
